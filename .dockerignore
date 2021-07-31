@@ -1,0 +1,12 @@
+.git
+.vagrant
+.env
+.DS_Store
+.docker-compose.yml
+
+.git/
+.github/
+.vscode/
+vendor/
+runtime/
+web/assets/

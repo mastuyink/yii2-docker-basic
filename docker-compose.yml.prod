@@ -1,0 +1,29 @@
+version: '2'
+services:
+  app:
+    build: .
+    image: yii2-basic-docker:apache-1-0
+    container_name: yii2-basic-docker-app
+    ports:
+      - ${HTTP_PORT}
+      - ${HTTPS_PORT}
+    networks:
+      - yemnak-network
+    env_file:
+      - ./.env
+      
+  mysql:
+    image: mysql:8.0
+    container_name: yii2-basic-docker-mysql
+    volumes:
+      - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
+    ports:
+      - ${MYSQL_COMPOSE_PORT}
+    networks:
+      - yemnak-network
+    env_file:
+      - ./.env
+      
+networks:
+  yemnak-network:
+    driver: bridge
