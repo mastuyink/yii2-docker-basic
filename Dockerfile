@@ -7,7 +7,12 @@ COPY ./ /app
 # RUN composer install --prefer-dist --optimize-autoloader --no-dev\
 #    && composer clear-cache
 
-RUN rm -rf runtime web/assets web/UPLOADED_FILES web/upload web/tmp UPLOADED_FILES TMP \
-    && mkdir -p runtime web/assets web/UPLOADED_FILES web/upload web/tmp UPLOADED_FILES TMP \
-    && chmod -R 775 runtime web/assets web/UPLOADED_FILES web/upload web/tmp UPLOADED_FILES TMP \
-    && chown -R www-data:www-data runtime web/assets web/UPLOADED_FILES web/upload web/tmp UPLOADED_FILES TMP
+RUN apt-get update \
+    && apt-get install -y unzip \
+    && rm -rf runtime web/assets \
+    && mkdir -p runtime web/assets \
+    && chmod -R 775 runtime web/assets \
+    && chown -R www-data:www-data runtime web/assets
+EXPOSE 80
+EXPOSE 443
+EXPOSE 3306

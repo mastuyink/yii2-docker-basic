@@ -6,7 +6,6 @@ services:
     container_name: yii2-basic-docker-app
     ports:
       - ${HTTP_PORT}
-      - ${HTTPS_PORT}
     volumes:
       # composer-cache on host-volume
       - ~/.composer-docker/cache:/root/.composer/cache
