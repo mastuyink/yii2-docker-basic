@@ -5,7 +5,12 @@
     <h1 align="center">Yii 2 Basic Project Template</h1>
     <br>
 </p>
-
+<p>
+CONSOLE COMMANDS
+- docker exec -t yii2-basic-docker-app composer install
+- docker exec -t yii2-basic-docker-app php yii migrate --interactive=0
+you may need sudo when pgot permission issue
+</p>
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 rapidly creating small projects.
 
